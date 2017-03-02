@@ -27,7 +27,7 @@ public class MovingObjectsPanel extends JPanel {
 		this.setPreferredSize(defaultDim);
 		//TODO decouple painting and ticking (low priority)
 		//Do the gamemap here
-		gm = new CentipedeGameMap(defaultDim);// let the map know what dim is
+		gm = new SuperbadGameMap(defaultDim);// let the map know what dim is
 		setUpKeyMappings();
 		t = new Timer(1000/FRAME_RATE, new ActionListener() {// fires off every 10 ms
 			@Override
@@ -51,7 +51,7 @@ public class MovingObjectsPanel extends JPanel {
 		// In this case I mapped the space bar key to the action named "shoot"
 		// Whenever someone hits the Space Bar the action shoot is sent out
 
-		this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"),"shoot");
+		//this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"),"shoot");
 		this.getInputMap().put(KeyStroke.getKeyStroke("LEFT"),"left");
 		this.getInputMap().put(KeyStroke.getKeyStroke("RIGHT"),"right");
 		this.getInputMap().put(KeyStroke.getKeyStroke("UP"),"up");
@@ -62,18 +62,16 @@ public class MovingObjectsPanel extends JPanel {
 		// goes in the actionPerformed method will be executed when a shoot command
 		// is sent...
 			
-		this.getActionMap().put("shoot",new AbstractAction(){
-			/**
-			 * 
-			 */
+		/*this.getActionMap().put("shoot",new AbstractAction(){
+		
 			private static final long serialVersionUID = 1L;
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				((CentipedeGameMap) gm).shoot();
+				((SuperbadGameMap) gm).shoot();
 			}
-		});
+		});*/
 		
 		this.getActionMap().put("left",new AbstractAction(){
 			/**
@@ -84,7 +82,7 @@ public class MovingObjectsPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				((CentipedeGameMap) gm).move("left");
+				((SuperbadGameMap) gm).move("left");
 			}
 		});
 		
@@ -97,7 +95,7 @@ public class MovingObjectsPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				((CentipedeGameMap) gm).move("right");
+				((SuperbadGameMap) gm).move("right");
 			}
 		});
 		
@@ -110,7 +108,7 @@ public class MovingObjectsPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				((CentipedeGameMap) gm).move("up");
+				((SuperbadGameMap) gm).move("up");
 			}
 		});
 		
@@ -123,7 +121,7 @@ public class MovingObjectsPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				((CentipedeGameMap) gm).move("down");
+				((SuperbadGameMap) gm).move("down");
 			}
 		});
 		
