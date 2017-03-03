@@ -51,11 +51,14 @@ public class MovingObjectsPanel extends JPanel {
 		// In this case I mapped the space bar key to the action named "shoot"
 		// Whenever someone hits the Space Bar the action shoot is sent out
 
-		this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"),"Jump");
+		//this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"),"Jump");
 		this.getInputMap().put(KeyStroke.getKeyStroke("A"),"left");
 		this.getInputMap().put(KeyStroke.getKeyStroke("D"),"right");
-		this.getInputMap().put(KeyStroke.getKeyStroke("W"),"up");
+		this.getInputMap().put(KeyStroke.getKeyStroke("W"),"Jump");
 		this.getInputMap().put(KeyStroke.getKeyStroke("S"),"crouch");
+		//Note from Nate - I think that we should implement shooting in the form of clicking the mouse
+		//And have a type of aiming system (A line extending from the gun) to indicate where the bullet will go
+		//based on the aiming of the mouse pointer. Just a thought
 
 		//  This associates the command shoot with some action.  In this
 		// case, the action triggers a shoot command invoked on my GameMap.  In general, whatever
