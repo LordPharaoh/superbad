@@ -7,10 +7,12 @@ import javax.imageio.ImageIO;
 
 
 public class SuperbadGameMap extends GameMap{
-	
+	public final static int GRAVITY = -3;
 	public SuperbadGameMap(Dimension dim) {
 		super();
 		createLevel(1);
+		Player p = new Player(new Vector(100, 100));
+		add(p);
 		openBackgroundImage();
 	}
 	
@@ -29,8 +31,8 @@ public class SuperbadGameMap extends GameMap{
 	public void openBackgroundImage() {
 		try {
 			URL url = getClass().getResource("res/background.jpg");
-			Image image = ImageIO.read(url);
-			this.backgroundImage = image;
+			//Image image = ImageIO.read(url);
+			//this.backgroundImage = image;
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -50,6 +52,9 @@ public class SuperbadGameMap extends GameMap{
 		for(Drawable drawThis: drawers) {
 			drawThis.draw(g);
 		}
+	}
+	public void move(String s) {
+		
 	}
 
 }

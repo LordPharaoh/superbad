@@ -4,10 +4,12 @@ import java.awt.Rectangle;
 public abstract class Character implements MovingObject, Drawable{
 	protected Vector location;
 	protected Vector dimension;
+	protected Vector velocity;
 	
 	public Character (Vector loc, Vector dim) {
 		location = loc;
 		dimension = dim;
+		velocity = new Vector(0, 0);
 	}
 	
 	public abstract void move();
