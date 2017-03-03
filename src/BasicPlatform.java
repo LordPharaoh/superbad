@@ -1,7 +1,7 @@
 import java.awt.Graphics;
 
 
-public class BasicPlatform extends RigidBody {
+public class BasicPlatform extends Platform {
 
 	public BasicPlatform(Vector loc, Vector dim) {
 		super(loc, dim);

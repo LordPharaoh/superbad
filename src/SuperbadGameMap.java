@@ -7,12 +7,14 @@ import javax.imageio.ImageIO;
 
 
 public class SuperbadGameMap extends GameMap{
-	public final static int GRAVITY = -3;
+	public final static int GRAVITY = 3;
 	public SuperbadGameMap(Dimension dim) {
 		super();
 		createLevel(1);
 		Player p = new Player(new Vector(100, 100));
 		add(p);
+		BasicPlatform bp = new BasicPlatform(new Vector(0, 200), new Vector(500, 500));
+		add(bp);
 		openBackgroundImage();
 	}
 	

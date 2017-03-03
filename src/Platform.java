@@ -2,12 +2,12 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 
-public abstract class RigidBody implements Drawable, MovingObject{
+public abstract class Platform implements Drawable, MovingObject{
 	/**RigidBody 
 		framework for things like platforms and boxes
 		that you jump and run into in game**/
 	protected Vector location, dimension;
-	public RigidBody(Vector loc, Vector dim) {
+	public Platform(Vector loc, Vector dim) {
 		location = loc;
 		dimension = dim;
 	}
