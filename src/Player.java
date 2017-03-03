@@ -4,8 +4,20 @@ public class Player extends Character{
   }
 
 @Override
-public void move(){
+public void move(string s){
+  if(s.equals("left")){
 
+  }
+  else if(s.equals("right")){
+
+  }
+  else if(s.equals("jump")){
+
+  }
+  else if (s.equals("crouch")) {
+
+  }
+  
 }
 
 }

@@ -54,7 +54,7 @@ public class MovingObjectsPanel extends JPanel {
 		//this.getInputMap().put(KeyStroke.getKeyStroke("SPACE"),"Jump");
 		this.getInputMap().put(KeyStroke.getKeyStroke("A"),"left");
 		this.getInputMap().put(KeyStroke.getKeyStroke("D"),"right");
-		this.getInputMap().put(KeyStroke.getKeyStroke("W"),"Jump");
+		this.getInputMap().put(KeyStroke.getKeyStroke("W"),"jump");
 		this.getInputMap().put(KeyStroke.getKeyStroke("S"),"crouch");
 		//Note from Nate - I think that we should implement shooting in the form of clicking the mouse
 		//And have a type of aiming system (A line extending from the gun) to indicate where the bullet will go
@@ -102,7 +102,7 @@ public class MovingObjectsPanel extends JPanel {
 			}
 		});
 
-		this.getActionMap().put("up",new AbstractAction(){
+		this.getActionMap().put("jump",new AbstractAction(){
 			/**
 			 *
 			 */
@@ -111,11 +111,11 @@ public class MovingObjectsPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				((SuperbadGameMap) gm).move("up");
+				((SuperbadGameMap) gm).move("jump");
 			}
 		});
 
-		this.getActionMap().put("down",new AbstractAction(){
+		this.getActionMap().put("crouch",new AbstractAction(){
 			/**
 			 *
 			 */
@@ -124,7 +124,7 @@ public class MovingObjectsPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				((SuperbadGameMap) gm).move("down");
+				((SuperbadGameMap) gm).move("crouch");
 			}
 		});
 
