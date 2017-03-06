@@ -8,6 +8,7 @@ public class BasicPlatform extends Platform {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
 	public void draw(Graphics g) {
 		g.drawRect(location.x, location.y, dimension.x, dimension.y);
 	}

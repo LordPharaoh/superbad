@@ -13,7 +13,7 @@ public abstract class Platform implements Drawable, MovingObject{
 	}
 	@Override
 	public void move() {
-		/** Empty because these things should be static **/
+		/** Empty because these things should be stationary **/
 	}
 
 	@Override

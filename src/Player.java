@@ -43,6 +43,7 @@ public class Player extends Character{
 	public void handleCollision(MovingObject m) {
 		// TODO Auto-generated method stub
 		if(m instanceof Platform) {
+			this.location.y = ((Platform) m).location.y - HEIGHT + 1;
 			velocity.y = 0;
 			falling = false;
 		}
