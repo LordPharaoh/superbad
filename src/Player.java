@@ -7,9 +7,9 @@ public class Player extends Character{
 		super(loc, new Vector(WIDTH, HEIGHT));
 	}
 
-	public void move(String s){
+	/*public void move(String s){
 		if(s.equals("left")){
-
+			
 		}
 		else if(s.equals("right")){
 
@@ -21,6 +21,20 @@ public class Player extends Character{
 
 		}
 
+	}
+	*/
+	public void moveLeft() {
+		updateLocation(new Vector(this.getLocation().x - this.getVelocity().x, this.getLocation().y));
+	}
+	public void moveRight() {
+		updateLocation(new Vector(this.getLocation().x + this.getVelocity().x, this.getLocation().y));
+	}
+	public void jump() {
+		updateLocation(new Vector(this.getLocation().x, this.getLocation().y - this.getVelocity().x));
+	}
+	public void crouch() {
+		//TODO crouch mech
+		updateLocation(new Vector(this.getLocation().x, this.getLocation().y - this.getVelocity().x));
 	}
 
 	@Override

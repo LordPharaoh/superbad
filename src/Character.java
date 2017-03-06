@@ -13,7 +13,12 @@ public abstract class Character implements MovingObject, Drawable{
 	}
 	
 	public abstract void move();
-
+	public void updateLocation(Vector newLoc) {
+		location = newLoc;
+	}
+	public Vector getVelocity() {
+		return velocity;
+	}
 	public Rectangle getBoundingRect() {
 		return new Rectangle(location.x, location.y, dimension.x, dimension.y);
 		//We need to have the location and Dimension variables for this.
