@@ -11,16 +11,18 @@ public class Player extends Character{
 
 	public void moveLeft() {
 		updateLocation(new Vector(this.getLocation().x - SPEED, this.getLocation().y));
-		this.velocity = new Vector(this.velocity.x - SPEED, this.velocity.y);
+		this.location = this.location.add(new Vector(-SPEED, this.location.y));
 		
 	}
 	public void moveRight() {
 		updateLocation(new Vector(this.getLocation().x + SPEED, this.getLocation().y));
-		this.velocity = new Vector(this.velocity.x + SPEED, this.velocity.y);
+		this.location = this.location.add(new Vector(SPEED, this.location.y));
 	}
 	public void jump() {
 		updateLocation(new Vector(this.getLocation().x, this.getLocation().y - JUMP_HEIGHT));
+		if(this.velocity.y == 0) {
 		this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
+		}
 	}
 	public void crouch() {
 		//TODO crouch mech
