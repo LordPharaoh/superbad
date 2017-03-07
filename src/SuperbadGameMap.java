@@ -69,7 +69,6 @@ public class SuperbadGameMap extends GameMap{
 		}
 	}
 
-	@Override
 	public void draw(Graphics g) {
 		for(Drawable drawThis: drawers) {
 			drawThis.draw(g);
