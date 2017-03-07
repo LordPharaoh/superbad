@@ -8,11 +8,14 @@ import javax.imageio.ImageIO;
 
 
 public class SuperbadGameMap extends GameMap{
-	public final static int GRAVITY = -3;
+	public final static int GRAVITY = 3;
 	public SuperbadGameMap(Dimension dim) {
 		super();
 		createLevel(1);
-		openBackgroundImage();
+		Player p = new Player(new Vector(50, 50));
+		add(p);
+		BasicPlatform bp = new BasicPlatform(new Vector(0, 200), new Vector(500, 500));
+		add(bp);
 	}
 	
 	private void createPlatforms(int amtOfPlatforms) {
@@ -46,9 +49,23 @@ public class SuperbadGameMap extends GameMap{
 
 	@Override
 	public void tick() {
-		// TODO CollideBeforeMoves
 		for(MovingObject currObj: movers) {
 			currObj.move();
+		}
+		for(int i = 0; i < movers.size(); i++) {
+
+			for(int h = i + 1; h < movers.size(); h++) {
+
+				if(movers.get(i).collision(movers.get(h))) {
+
+					movers.get(i).handleCollision(movers.get(h));
+
+					movers.get(h).handleCollision(movers.get(i));
+
+				}
+
+			}
+
 		}
 	}
 
