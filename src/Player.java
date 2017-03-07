@@ -17,11 +17,11 @@ public class Player extends Character{
 		this.location = this.location.add(new Vector(SPEED, 0));
 	}
 	public void jump() {
-		if(this.velocity.y == 0) { //TODO fix double jumps
+		if(this.velocity.y == 0) {
 		this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
 		}
 	}
-	public void crouch() {
+	public void crouch(){
 		//TODO crouch mech
 	}
 

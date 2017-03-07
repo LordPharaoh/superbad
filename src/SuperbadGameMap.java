@@ -12,10 +12,10 @@ public class SuperbadGameMap extends GameMap{
 	public SuperbadGameMap(Dimension dim) {
 		super();
 		createLevel(1);
-		Player p = new Player(new Vector(50, 50));
+		/*Player p = new Player(new Vector(50, 50));
 		add(p);
 		BasicPlatform bp = new BasicPlatform(new Vector(0, 200), new Vector(500, 500));
-		add(bp);
+		add(bp);*/
 	}
 	
 	private void createPlatforms(int amtOfPlatforms) {
@@ -26,6 +26,7 @@ public class SuperbadGameMap extends GameMap{
 		for(int i = 0; i < amtOfPlatforms + 1; i++) {
 			add(new BasicPlatform(new Vector(i * xincrement, i*yincrement), new Vector(50, 50)));
 		}
+		add(new BasicPlatform(new Vector(0, d.height - 100), new Vector(d.width, 1)));
 	}
 	private void createLevel(int level) {
 		createPlatforms(level*20);
