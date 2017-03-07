@@ -10,11 +10,11 @@ public class Player extends Character{
 	}
 
 	public void moveLeft() {
-		this.location = this.location.add(new Vector(-SPEED, this.location.y));
+		this.location = this.location.add(new Vector(-SPEED, 0));
 		
 	}
 	public void moveRight() {
-		this.location = this.location.add(new Vector(SPEED, this.location.y));
+		this.location = this.location.add(new Vector(SPEED, 0));
 	}
 	public void jump() {
 		if(this.velocity.y == 0) { //TODO fix double jumps
