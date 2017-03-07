@@ -9,20 +9,22 @@ public class Player extends Character{
 		falling = true;
 	}
 
-	public void move(String s){
-		if(s.equals("left")){
-
-		}
-		else if(s.equals("right")){
-
-		}
-		else if(s.equals("jump")){
-
-		}
-		else if (s.equals("crouch")) {
-
-		}
-
+	public void moveLeft() {
+		updateLocation(new Vector(this.getLocation().x - SPEED, this.getLocation().y));
+		this.velocity = new Vector(this.velocity.x - SPEED, this.velocity.y);
+		
+	}
+	public void moveRight() {
+		updateLocation(new Vector(this.getLocation().x + SPEED, this.getLocation().y));
+		this.velocity = new Vector(this.velocity.x + SPEED, this.velocity.y);
+	}
+	public void jump() {
+		updateLocation(new Vector(this.getLocation().x, this.getLocation().y - JUMP_HEIGHT));
+		this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
+	}
+	public void crouch() {
+		//TODO crouch mech
+		//updateLocation(new Vector(this.getLocation().x, this.getLocation().y - CROUCH_HEIGHT));
 	}
 
 	@Override
