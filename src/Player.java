@@ -2,12 +2,19 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class Player extends Character{
-	public static final int WIDTH = 50;
-	public static final int HEIGHT = 50;
+	public static final int WIDTH = 25;
+	public static final int HEIGHT = 100;
 	private boolean falling;
+	private Animation animation;
 	public Player (Vector loc) {
 		super(loc, new Vector(WIDTH, HEIGHT));
 		falling = true;
+		try {
+			animation = new Animation("res/player");
+		} catch (InvalidAnimationDirectoryException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void moveLeft() {
@@ -38,6 +45,7 @@ public class Player extends Character{
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
 		g.drawRect(location.x, location.y, dimension.x, dimension.y);
+		animation.draw(g, location.add(new Vector((int)(-WIDTH * 1.5), 0)));
 	}
 
 	@Override

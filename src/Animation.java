@@ -31,7 +31,7 @@ public class Animation {
 		// TODO Auto-generated method stub
 		g.drawImage(images.get(frameNumber), location.x, location.y, null);
 		frameNumber++;
-		if(frameNumber > images.size()) frameNumber = 0;
+		if(frameNumber >= images.size()) frameNumber = 0;
 	}
 	
 	public Animation(String s) throws InvalidAnimationDirectoryException {
@@ -39,9 +39,8 @@ public class Animation {
 	}
 	
 	public Animation(String s, Vector size) throws InvalidAnimationDirectoryException {
-		URL url = this.getClass().getResource(s);
-
 		try {
+			URL url = this.getClass().getResource(s);
 			resourceFile = new File(url.toURI());
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
@@ -54,12 +53,17 @@ public class Animation {
 		
 		File[] dir = resourceFile.listFiles();
 		List<File> imageFiles = new ArrayList<File>();
+		images = new ArrayList<Image>();
 		for (File f : dir) {
-			if(isImage(f)) imageFiles.add(f);
+			if(isImage(f)) {
+				imageFiles.add(f);
+				System.out.println(f);
+			}
+
 		}
 		for (File imgf : imageFiles) {
 			try {
-				images.add(ImageIO.read(imgf).getScaledInstance(size.x, size.y, Image.SCALE_DEFAULT));
+				images.add(ImageIO.read(imgf));//.getScaledInstance(size.x, size.y, Image.SCALE_DEFAULT));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
