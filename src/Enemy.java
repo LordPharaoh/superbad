@@ -3,11 +3,12 @@ import java.awt.Graphics;
 public class Enemy extends Character{
 	public static final int WIDTH = 50;
 	public static final int HEIGHT = 50;
-	private boolean falling;
-	
+
+	public boolean falling;
+
 	public Enemy(Vector loc) {
-		super(loc, new Vector(WIDTH,HEIGHT));
-		falling = true;
+		super(loc, new Vector(WIDTH, HEIGHT));
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -33,6 +34,5 @@ public class Enemy extends Character{
 			falling = false;
 		}
 	}
-
 
 }

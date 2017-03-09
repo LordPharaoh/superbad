@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class Player extends Character{
 	public static final int WIDTH = 50;
@@ -9,20 +10,20 @@ public class Player extends Character{
 		falling = true;
 	}
 
-	public void move(String s){
-		if(s.equals("left")){
-
+	public void moveLeft() {
+		this.location = this.location.add(new Vector(-SPEED, 0));
+		
+	}
+	public void moveRight() {
+		this.location = this.location.add(new Vector(SPEED, 0));
+	}
+	public void jump() {
+		if(this.velocity.y == 0) {
+		this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
 		}
-		else if(s.equals("right")){
-
-		}
-		else if(s.equals("jump")){
-
-		}
-		else if (s.equals("crouch")) {
-
-		}
-
+	}
+	public void crouch(){
+		//TODO crouch mech
 	}
 
 	@Override
@@ -43,9 +44,15 @@ public class Player extends Character{
 	public void handleCollision(MovingObject m) {
 		// TODO Auto-generated method stub
 		if(m instanceof Platform) {
-			this.location.y = ((Platform) m).location.y - HEIGHT + 1;
-			velocity.y = 0;
-			falling = false;
+			//Rectangle intersection = m.getBoundingRect().intersection(this.getBoundingRect());
+			if(location.y - velocity.y + HEIGHT - 1 < m.getLocation().y) {
+				this.location.y = ((Platform) m).location.y - HEIGHT;
+				velocity.y = 0;
+				falling = false;
+			}
+			else {
+				velocity.x = 0;
+			}
 		}
 	}
 
