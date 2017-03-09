@@ -7,7 +7,6 @@ public abstract class Character implements MovingObject, Drawable{
 	protected Vector velocity;
 	protected int JUMP_HEIGHT = 20;
 	protected int SPEED = 10;
-	protected int CROUCH_HEIGHT = 10;
 	public Character (Vector loc, Vector dim) {
 		location = loc;
 		dimension = dim;
@@ -22,7 +21,8 @@ public abstract class Character implements MovingObject, Drawable{
 		return velocity;
 	}
 	public Rectangle getBoundingRect() {
-		return new Rectangle(location.x, location.y, dimension.x, dimension.y);
+		//We add one so we have a bit of room at the bottom
+		return new Rectangle(location.x, location.y, dimension.x, dimension.y + 1);
 		//We need to have the location and Dimension variables for this.
 	}
 	@Override
