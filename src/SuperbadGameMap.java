@@ -15,6 +15,8 @@ public class SuperbadGameMap extends GameMap{
 		add(p);
 		BasicPlatform bp = new BasicPlatform(new Vector(0, 200), new Vector(500, 500));
 		add(bp);
+		Enemy ep = new Enemy(new Vector(200,80));
+		add(ep);
 		openBackgroundImage();
 	}
 	
