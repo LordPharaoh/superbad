@@ -45,7 +45,6 @@ public class SuperbadGameMap extends GameMap{
 
 	@Override
 	public void tick() {
-		// TODO CollideBeforeMoves
 		for(MovingObject currObj: movers) {
 			currObj.move();
 		}
