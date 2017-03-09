@@ -22,9 +22,8 @@ public class Player extends Character{
 		this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
 		}
 	}
-	public void crouch() {
+	public void crouch(){
 		//TODO crouch mech
-		//updateLocation(new Vector(this.getLocation().x, this.getLocation().y - CROUCH_HEIGHT));
 	}
 
 	@Override
