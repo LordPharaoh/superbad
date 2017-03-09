@@ -22,7 +22,8 @@ public abstract class Character implements MovingObject, Drawable{
 		return velocity;
 	}
 	public Rectangle getBoundingRect() {
-		return new Rectangle(location.x, location.y, dimension.x, dimension.y);
+		//We add one so we have a bit of room at the bottom
+		return new Rectangle(location.x, location.y, dimension.x, dimension.y + 1);
 		//We need to have the location and Dimension variables for this.
 	}
 	@Override

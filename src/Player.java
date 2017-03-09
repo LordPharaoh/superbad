@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public class Player extends Character{
 	public static final int WIDTH = 50;
@@ -10,16 +11,13 @@ public class Player extends Character{
 	}
 
 	public void moveLeft() {
-		updateLocation(new Vector(this.getLocation().x - SPEED, this.getLocation().y));
-		this.location = this.location.add(new Vector(-SPEED, this.location.y));
+		this.location = this.location.add(new Vector(-SPEED, 0));
 		
 	}
 	public void moveRight() {
-		updateLocation(new Vector(this.getLocation().x + SPEED, this.getLocation().y));
-		this.location = this.location.add(new Vector(SPEED, this.location.y));
+		this.location = this.location.add(new Vector(SPEED, 0));
 	}
 	public void jump() {
-		updateLocation(new Vector(this.getLocation().x, this.getLocation().y - JUMP_HEIGHT));
 		if(this.velocity.y == 0) {
 		this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
 		}
@@ -47,9 +45,15 @@ public class Player extends Character{
 	public void handleCollision(MovingObject m) {
 		// TODO Auto-generated method stub
 		if(m instanceof Platform) {
-			this.location.y = ((Platform) m).location.y - HEIGHT + 1;
-			velocity.y = 0;
-			falling = false;
+			//Rectangle intersection = m.getBoundingRect().intersection(this.getBoundingRect());
+			if(location.y - velocity.y + HEIGHT - 1 < m.getLocation().y) {
+				this.location.y = ((Platform) m).location.y - HEIGHT;
+				velocity.y = 0;
+				falling = false;
+			}
+			else {
+				velocity.x = 0;
+			}
 		}
 	}
 
