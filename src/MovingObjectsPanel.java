@@ -1,9 +1,11 @@
 import java.awt.Dimension;
-
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.MouseInfo;
+
 import javax.swing.AbstractAction;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
@@ -44,6 +46,44 @@ public class MovingObjectsPanel extends JPanel {
 
 
 	}
+	private void setUpClickListener() {
+		// Whoever has focus is who can interact with mouse and keyboard, etc
+		this.requestFocusInWindow();
+
+		// similar to having an entity ready to interact with the Mouse
+		this.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// when the mouse enters the panel, this is called
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// duh...
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent click) {
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// use this to find out when the mouse was released
+
+			}
+
+		});
+
+	}
+
 
 	private void setUpKeyMappings() {
 		// maps keys with actions...
