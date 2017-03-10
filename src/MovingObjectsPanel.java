@@ -56,6 +56,10 @@ public class MovingObjectsPanel extends JPanel {
 		this.getInputMap().put(KeyStroke.getKeyStroke("D"),"right");
 		this.getInputMap().put(KeyStroke.getKeyStroke("W"),"jump");
 		this.getInputMap().put(KeyStroke.getKeyStroke("S"),"crouch");
+		this.getInputMap().put(KeyStroke.getKeyStroke("WD"), "jump right");
+		this.getInputMap().put(KeyStroke.getKeyStroke("DW"), "jump right");
+		this.getInputMap().put(KeyStroke.getKeyStroke("WA"), "jump left");
+		this.getInputMap().put(KeyStroke.getKeyStroke("AW"), "jump left");
 		//Note from Nate - I think that we should implement shooting in the form of clicking the mouse
 		//And have a type of aiming system (A line extending from the gun) to indicate where the bullet will go
 		//based on the aiming of the mouse pointer. Just a thought

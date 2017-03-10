@@ -5,6 +5,7 @@ public class Player extends Character{
 	public static final int WIDTH = 50;
 	public static final int HEIGHT = 50;
 	private boolean falling;
+	private boolean colliding;
 	public Player (Vector loc) {
 		super(loc, new Vector(WIDTH, HEIGHT));
 		falling = true;
@@ -15,15 +16,35 @@ public class Player extends Character{
 		
 	}
 	public void moveRight() {
+		
 		this.location = this.location.add(new Vector(SPEED, 0));
 	}
 	public void jump() {
 		if(this.velocity.y == 0) {
-		this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
+		this.velocity = new Vector(this.velocity.x + SPEED, this.velocity.y - JUMP_HEIGHT);
+		if(colliding){
+			this.velocity.x = 0;
 		}
+		}
+	}
+	public void jumpRight() {
+		// TODO Auto-generated method stub
+		if(this.velocity.y == 0) {			
+			this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
+			}
+		moveRight();
+	}
+
+	public void jumpLeft() {
+		// TODO Auto-generated method stub
+		if(this.velocity.y == 0) {
+			this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
+			}
+		moveLeft();
 	}
 	public void crouch(){
 		//TODO crouch mech
+		
 	}
 
 	@Override
@@ -49,11 +70,14 @@ public class Player extends Character{
 				this.location.y = ((Platform) m).location.y - HEIGHT;
 				velocity.y = 0;
 				falling = false;
+				colliding = true;
 			}
 			else {
 				velocity.x = 0;
 			}
 		}
 	}
+
+
 
 }

@@ -5,8 +5,8 @@ public abstract class Character implements MovingObject, Drawable{
 	protected Vector location;
 	protected Vector dimension;
 	protected Vector velocity;
-	protected int JUMP_HEIGHT = 20;
-	protected int SPEED = 10;
+	protected int JUMP_HEIGHT = 60;
+	protected int SPEED = 15;
 	public Character (Vector loc, Vector dim) {
 		location = loc;
 		dimension = dim;
