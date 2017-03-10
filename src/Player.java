@@ -76,7 +76,7 @@ public class Player extends Character{
 			//Rectangle intersection = m.getBoundingRect().intersection(this.getBoundingRect());
 			if(location.y - velocity.y + HEIGHT - 1 < m.getLocation().y) {
 				this.location.y = ((Platform) m).location.y - HEIGHT;
-				velocity.y = 0;
+				this.velocity.y = 0;
 				falling = false;
 				this.velocity.x = 0;
 //				colliding = true;
