@@ -22,9 +22,9 @@ public class Player extends Character{
 	public void jump() {
 		if(this.velocity.y == 0) {
 		this.velocity = new Vector(this.velocity.x + SPEED, this.velocity.y - JUMP_HEIGHT);
-		if(colliding){
-			this.velocity.x = 0;
-		}
+//		if(colliding){
+//			this.velocity.x = 0;
+//		}
 		}
 	}
 	public void jumpRight() {
@@ -70,7 +70,8 @@ public class Player extends Character{
 				this.location.y = ((Platform) m).location.y - HEIGHT;
 				velocity.y = 0;
 				falling = false;
-				colliding = true;
+				this.velocity.x = 0;
+//				colliding = true;
 			}
 			else {
 				velocity.x = 0;
