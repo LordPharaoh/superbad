@@ -32,11 +32,16 @@ public class Player extends Character{
 	}
 	public void jump() {
 		if(this.velocity.y == 0) { 
-			if(moveDir.get(moveDir.size() - 1) != null && (moveDir.get(moveDir.size() - 1).equalsIgnoreCase("right"))){
+			if(moveDir.isEmpty()) {
+				this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
+			}
+			else if(moveDir.get(moveDir.size() - 1) != null && (moveDir.get(moveDir.size() - 1).equalsIgnoreCase("right"))){
 				this.velocity = new Vector(this.velocity.x + SPEED, this.velocity.y - JUMP_HEIGHT);
+				moveDir.clear();
 			}
 			else if(moveDir.get(moveDir.size() - 1) != null && (moveDir.get(moveDir.size() - 1).equalsIgnoreCase("left"))){
 				this.velocity = new Vector(this.velocity.x - SPEED, this.velocity.y - JUMP_HEIGHT);
+				moveDir.clear();
 			}
 		
 //		if(colliding){
