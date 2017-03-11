@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 
 public class SuperbadGameMap extends GameMap{
-	public final static int GRAVITY = 3;
+	public final static int GRAVITY = 6;
 	public SuperbadGameMap(Dimension dim) {
 		super();
 		createLevel(1);
