@@ -26,11 +26,11 @@ public class Player extends Character{
 		
 	}
 	public void moveRight() {
-		
 		this.location = this.location.add(new Vector(SPEED, 0));
 		moveDir.add("Right");
 	}
 	public void jump() {
+		//TODO fix stopping on collision
 		if(this.velocity.y == 0) { 
 			if(moveDir.isEmpty()) {
 				this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
@@ -79,21 +79,27 @@ public class Player extends Character{
 
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
 		g.drawRect(location.x, location.y, dimension.x, dimension.y);
 		animation.draw(g, location.add(new Vector((int)(-WIDTH * 1.5), 0)));
 	}
 
 	@Override
 	public void handleCollision(MovingObject m) {
-		// TODO Auto-generated method stub
 		if(m instanceof Platform) {
 			//Rectangle intersection = m.getBoundingRect().intersection(this.getBoundingRect());
 			if(location.y - velocity.y + HEIGHT - 1 < m.getLocation().y) {
 				this.location.y = ((Platform) m).location.y - HEIGHT;
 				this.velocity.y = 0;
 				falling = false;
+				if(IsKeyPressed.isAPressed()) {
+					this.velocity.add(new Vector(SPEED, 0));
+				}
+				else if(IsKeyPressed.isDPressed()) {
+					this.velocity.add(new Vector(-SPEED, 0));
+				}
+				else {
 				this.velocity.x = 0;
+				}
 //				colliding = true;
 			}
 			else {
