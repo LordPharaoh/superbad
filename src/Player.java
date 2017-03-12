@@ -31,8 +31,11 @@ public class Player extends Character{
 		moveDir.add("Right");
 	}
 	public void jump() {
-		if(this.velocity.y == 0) { 
-			if(moveDir.get(moveDir.size() - 1) != null && (moveDir.get(moveDir.size() - 1).equalsIgnoreCase("right"))){
+		if(this.velocity.y == 0) {
+			if(moveDir.size() == 0){
+				this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
+			}
+			else if(moveDir.get(moveDir.size() - 1) != null && (moveDir.get(moveDir.size() - 1).equalsIgnoreCase("right"))){
 				this.velocity = new Vector(this.velocity.x + SPEED, this.velocity.y - JUMP_HEIGHT);
 			}
 			else if(moveDir.get(moveDir.size() - 1) != null && (moveDir.get(moveDir.size() - 1).equalsIgnoreCase("left"))){
@@ -44,23 +47,11 @@ public class Player extends Character{
 //		}
 		}
 	}
-	public void jumpRight() {
-		// TODO Auto-generated method stub
-		if(this.velocity.y == 0) {			
-			this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
-			}
-		moveRight();
-	}
-
-	public void jumpLeft() {
-		// TODO Auto-generated method stub
-		if(this.velocity.y == 0) {
-			this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
-			}
-		moveLeft();
-	}
+	
 	public void crouch(){
 		//TODO crouch mech
+		moveDir.clear();
+		this.location.y = this.dimension.y  / 2;
 		
 	}
 
@@ -74,14 +65,14 @@ public class Player extends Character{
 
 	@Override
 	public void draw(Graphics g) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stu
 		g.drawRect(location.x, location.y, dimension.x, dimension.y);
 		animation.draw(g, location.add(new Vector((int)(-WIDTH * 1.5), 0)));
 	}
 
 	@Override
 	public void handleCollision(MovingObject m) {
-		// TODO Auto-generated method stub
+	
 		if(m instanceof Platform) {
 			//Rectangle intersection = m.getBoundingRect().intersection(this.getBoundingRect());
 			if(location.y - velocity.y + HEIGHT - 1 < m.getLocation().y) {
@@ -95,6 +86,11 @@ public class Player extends Character{
 				velocity.x = 0;
 			}
 		}
+	}
+
+	public void shoot() {
+		
+		
 	}
 
 

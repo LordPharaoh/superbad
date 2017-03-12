@@ -93,12 +93,8 @@ public class SuperbadGameMap extends GameMap{
 		case "jump":
 			truePlayer.jump();
 			break;
-		case "jump right":
-			truePlayer.jumpRight();
-			break;
-		case "jump left":
-			truePlayer.jumpLeft();
-			break;
+		case "shoot":
+			truePlayer.shoot();
 		default:
 			break;
 		}
