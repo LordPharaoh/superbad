@@ -37,11 +37,11 @@ public class Player extends Character{
 			}
 			else if(moveDir.get(moveDir.size() - 1) != null && (moveDir.get(moveDir.size() - 1).equalsIgnoreCase("right"))){
 				this.velocity = new Vector(this.velocity.x + SPEED, this.velocity.y - JUMP_HEIGHT);
-				moveDir.clear();
+				
 			}
 			else if(moveDir.get(moveDir.size() - 1) != null && (moveDir.get(moveDir.size() - 1).equalsIgnoreCase("left"))){
 				this.velocity = new Vector(this.velocity.x - SPEED, this.velocity.y - JUMP_HEIGHT);
-				moveDir.clear();
+				
 			}
 		
 //		if(colliding){
