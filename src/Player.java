@@ -30,9 +30,9 @@ public class Player extends Character{
 		moveDir.add("Right");
 	}
 	public void jump() {
-		//TODO fix stopping on collision
-		if(this.velocity.y == 0) { 
-			if(moveDir.isEmpty()) {
+
+		if(this.velocity.y == 0) {
+			if(moveDir.size() == 0){
 				this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
 			}
 			else if(moveDir.get(moveDir.size() - 1) != null && (moveDir.get(moveDir.size() - 1).equalsIgnoreCase("right"))){
@@ -49,23 +49,11 @@ public class Player extends Character{
 //		}
 		}
 	}
-	public void jumpRight() {
-		// TODO Auto-generated method stub
-		if(this.velocity.y == 0) {			
-			this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
-			}
-		moveRight();
-	}
-
-	public void jumpLeft() {
-		// TODO Auto-generated method stub
-		if(this.velocity.y == 0) {
-			this.velocity = new Vector(this.velocity.x, this.velocity.y - JUMP_HEIGHT);
-			}
-		moveLeft();
-	}
-	public void crouch(){
+	
+	public void teleport(){
 		//TODO crouch mech
+		moveDir.clear();
+		this.location.y = this.dimension.y  / 2;
 		
 	}
 
@@ -106,6 +94,11 @@ public class Player extends Character{
 				velocity.x = 0;
 			}
 		}
+	}
+
+	public void shoot() {
+		
+		
 	}
 
 
