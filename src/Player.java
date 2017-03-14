@@ -48,7 +48,7 @@ public class Player extends Character{
 		}
 	}
 	
-	public void crouch(){
+	public void teleport(){
 		//TODO crouch mech
 		moveDir.clear();
 		this.location.y = this.dimension.y  / 2;
