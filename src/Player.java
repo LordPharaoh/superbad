@@ -1,6 +1,10 @@
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
+import java.net.URL;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 public class Player extends Character{
 	public static final int WIDTH = 25;
@@ -13,9 +17,10 @@ public class Player extends Character{
 		super(loc, new Vector(WIDTH, HEIGHT));
 		falling = true;
 		try {
-			animation = new Animation("res/player");
-		} catch (InvalidAnimationDirectoryException e) {
-			// TODO Auto-generated catch block
+			URL url = getClass().getResource("res/player2.png");
+			Image image = ImageIO.read(url);
+			this.img = image;
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -68,7 +73,8 @@ public class Player extends Character{
 	@Override
 	public void draw(Graphics g) {
 		g.drawRect(location.x, location.y, dimension.x, dimension.y);
-		animation.draw(g, location.add(new Vector((int)(-WIDTH * 1.5), 0)));
+		g.drawImage(this.img, location.x - 40, location.y, dimension.x * 4, dimension.y, null);
+		//animation.draw(g, location.add(new Vector((int)(-WIDTH * 1.5), 0)));
 	}
 
 	@Override

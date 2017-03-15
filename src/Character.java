@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 
 public abstract class Character implements MovingObject, Drawable{
@@ -7,6 +8,7 @@ public abstract class Character implements MovingObject, Drawable{
 	protected Vector velocity;
 	protected int JUMP_HEIGHT = 28;
 	protected int SPEED = 15;
+	protected Image img;
 	public Character (Vector loc, Vector dim) {
 		location = loc;
 		dimension = dim;
